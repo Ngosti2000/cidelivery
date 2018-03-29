@@ -5,8 +5,10 @@ version: 0.2
 phases:
   prebuild:
     commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
       - REPOSITORY_URI=351526385543.dkr.ecr.us-east-2.amazonaws.com/continousdeployment
-      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)     
   build:
     commands:
       - echo Build started on `date`
