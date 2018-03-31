@@ -1,0 +1,17 @@
+## YAML Template.
+---
+version: 0.0
+os: linux
+files:
+  - source: target/
+    destination: /home/ec2-user/
+  - source: source
+    destination: /home/ec2-user/
+hooks:
+   AfterInstall:
+    - location: /scripts/killjava.sh
+    - location: /scripts/copy.sh
+      timeout: 180
+ApplicationStart:
+    - location: scripts/launchJavaApp.sh
+      timeout: 3600
