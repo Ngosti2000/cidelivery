@@ -11,7 +11,9 @@ hooks:
    AfterInstall:
     - location: /scripts/killjava.sh
     - location: /scripts/copy.sh
+    - runas: ec2-user
       timeout: 180
 ApplicationStart:
     - location: scripts/launchJavaApp.sh
+    - runas: ec2-user
       timeout: 3600
